@@ -3,9 +3,9 @@ import React from "react";
 const Navbar = () => {
   return (
     <div>
-      <nav class="navbar navbar-expand-lg bg-light">
+      <nav class="navbar navbar-expand-lg bg-dark shadow-sm py-2">
         <div class="container-fluid">
-          <a class="navbar-brand fw-bold fs-4" href="#">
+          <a class="navbar-brand fw-bold fs-4 text-danger" href="#">
             FakeStore
           </a>
           <button
