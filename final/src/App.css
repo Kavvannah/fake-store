@@ -2,5 +2,10 @@
 
 .navbar-nav a {
     font-size: 18px;
-    color: #ff0000;
+    color: #ffffff;
+}
+
+/* home */
+div.card h5, div.card p {
+    text-align: right;
 }

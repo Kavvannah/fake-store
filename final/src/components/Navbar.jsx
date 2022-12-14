@@ -5,7 +5,7 @@ const Navbar = () => {
     <div>
       <nav class="navbar navbar-expand-lg bg-dark shadow-sm py-2">
         <div class="container-fluid">
-          <a class="navbar-brand fw-bold fs-4 text-danger" href="#">
+          <a class="navbar-brand fw-bold fs-4 text-white" href="#">
             FakeStore
           </a>
           <button
@@ -43,13 +43,13 @@ const Navbar = () => {
               </li>
             </ul>
             <div className="buttons">
-                <a href="" className="btn btn-outline-danger">
+                <a href="" className="btn btn-outline-light">
                     <i className="fa fa-sign-in me-1"> Sign in</i>
                 </a>
-                <a href="" className="btn btn-outline-danger ms-2">
+                <a href="" className="btn btn-outline-light ms-2">
                     <i className="fa fa-user-plus me-1"> Register</i>
                 </a>
-                <a href="" className="btn btn-outline-danger ms-2">
+                <a href="" className="btn btn-outline-light ms-2">
                     <i className="fa fa-shopping-bag me-1"> Cart (0)</i>
                 </a>
             </div>
