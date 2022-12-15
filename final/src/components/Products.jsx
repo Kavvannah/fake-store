@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import Skeleton from "react-loading-skeleton";
+
 
 const Products = () => {
   const [data, setData] = useState([]);
@@ -30,8 +32,29 @@ const Products = () => {
   // loading and Show Products
 
     //   LOaDiNg...
-  function Loading() {
-        return <>Loading...</>;
+  const Loading = () => {
+        return (
+        <>
+            <div className="col-md-3">
+                <Skeleton height={350}/>
+            </div>
+            <div className="col-md-3">
+                <Skeleton height={350}/>
+            </div>
+            <div className="col-md-3">
+                <Skeleton height={350}/>
+            </div>
+            <div className="col-md-3">
+                <Skeleton height={350}/>
+            </div>
+        </>
+        );
+    };
+
+    // filter products on click, update setFilter
+    const filterProducts = (categ) => {
+        const updatedList = data.filter((x)=>x.category === categ);
+        setFilter(updatedList);
     }
 
     //buttons and products
@@ -39,13 +62,11 @@ const Products = () => {
     return (
       <>
         <div className="button d-flex justify-content-center mb-5 pb-5">
-          <button className="btn btn-outline-dark me-2">All</button>
-          <button className="btn btn-outline-dark me-2">Men's Clothing</button>
-          <button className="btn btn-outline-dark me-2">
-            Women's Clothing
-          </button>
-          <button className="btn btn-outline-dark me-2">Jewelery</button>
-          <button className="btn btn-outline-dark me-2">Electronics</button>
+          <button className="btn btn-outline-dark me-2" onClick={()=>setFilter(data)}>All</button>
+          <button className="btn btn-outline-dark me-2" onClick={()=>filterProducts("men's clothing")}>Men's Clothing</button>
+          <button className="btn btn-outline-dark me-2" onClick={()=>filterProducts("women's clothing")}>Women's Clothing</button>
+          <button className="btn btn-outline-dark me-2" onClick={()=>filterProducts("jewelery")}>Jewelery</button>
+          <button className="btn btn-outline-dark me-2" onClick={()=>filterProducts("electronics")}>Electronics</button>
         </div>
 
         {/* products from api */}
