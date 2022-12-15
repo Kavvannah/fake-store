@@ -9,70 +9,70 @@ const Products = () => {
   //useEffect
   useEffect(() => {
     const getProducts = async () => {
-        setLoading(true);
-        const response = await fetch('https://fakestoreapi.com/products');
-        if (componentMounted) {
-            setData(await response.clone().json());
-            setFilter(await response.json());
-            setLoading(false);
-            console.log(filter)
-        }
+      setLoading(true);
+      const response = await fetch("https://fakestoreapi.com/products");
+      if (componentMounted) {
+        setData(await response.clone().json());
+        setFilter(await response.json());
+        setLoading(false);
+        console.log(filter);
+      }
 
-        return () => {
-            componentMounted = false;
-        }
-    }
-    
+      return () => {
+        componentMounted = false;
+      };
+    };
+
     getProducts();
-
+    
   }, []);
 
   // loading and Show Products
-  const Loading = () => {
-    return(
-        <>
-            Loading...
-        </>
-    )
-  }
 
+    //   LOaDiNg...
+  function Loading() {
+        return <>Loading...</>;
+    }
+
+    //buttons and products
   const ShowProducts = () => {
-        return (
-            <>
-                <div className="button d-flex justify-content-center mb-5 pb-5">
-                    <button className="btn btn-outline-dark me-2">All</button>
-                    <button className="btn btn-outline-dark me-2">Men's Clothing</button>
-                    <button className="btn btn-outline-dark me-2">
-                        Women's Clothing
-                    </button>
-                    <button className="btn btn-outline-dark me-2">Jewelery</button>
-                    <button className="btn btn-outline-dark me-2">Electronics</button>
-                </div>
+    return (
+      <>
+        <div className="button d-flex justify-content-center mb-5 pb-5">
+          <button className="btn btn-outline-dark me-2">All</button>
+          <button className="btn btn-outline-dark me-2">Men's Clothing</button>
+          <button className="btn btn-outline-dark me-2">
+            Women's Clothing
+          </button>
+          <button className="btn btn-outline-dark me-2">Jewelery</button>
+          <button className="btn btn-outline-dark me-2">Electronics</button>
+        </div>
 
-                {/* filtering on button */}
-                {filter.map((product) => {
-                    return (
-                        <>
-                            <div className="col-md-3">
-                                <div class="card">
-                                    <img src={product.image} class="card-img-top" alt={product.title} />
-                                    <div class="card-body">
-                                        <h5 class="card-title">{product.title}</h5>
-                                        <p class="card-text">
-                                            ${product.price}
-                                        </p>
-                                        <a href="#" class="btn btn-primary">
-                                            Go somewhere
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </>
-                    )
-                })}
+        {/* products from api */}
+        {filter.map((product) => (
+            <>
+                <div className="col-md-3 mb-3">
+                    <div class="card h-100 text-center p-4" key={product.id}>
+                        <img
+                            src={product.image}
+                            class="card-img-top"
+                            alt={product.title}
+                            height="250px" />
+                        <div class="card-body">
+                                                                {/* title control */}
+                            <h5 class="card-title mb-0">{product.title.substring(0,25)}...</h5>
+                            <p class="card-text lead fw-bold">${product.price}</p>
+                            <a href="#" class="btn btn-outline-dark">
+                                Go somewhere
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </>
-        );
-    };
+        ))}
+      </>
+    );
+  };
 
   return (
     <div>
