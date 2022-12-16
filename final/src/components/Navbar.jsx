@@ -21,7 +21,7 @@ const Navbar = () => {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
+            <ul className="navbar-nav mx-auto mb-2 mb-lg-0z">
               <li className="nav-item">
                 <NavLink className="nav-link active text-white" aria-current="page" to="/">
                   Home
@@ -51,7 +51,7 @@ const Navbar = () => {
                     <i className="fa fa-user-plus me-1"> Register</i>
                 </NavLink>
                 <NavLink to="/cart" className="btn btn-outline-light ms-2">
-                    <i className="fa fa-shopping-bag me-1"> Cart (0)</i>
+                    <i className="fa fa-shopping-bag me-1"> Bag (0)</i>
                 </NavLink>
             </div>
           </div>
